@@ -1,1 +1,19 @@
-[{"a": 1, "shout": 2, "everyone": 1, "madness": 1, "every": 2, "call": 1, "big": 1, "make": 1, "get": 1, "so": 1, "who": 1, "brain": 1, "holler": 1, "harvard": 1, "music": 1, "go": 1, "march": 1, "meeting": 1, "out": 2}]
+a 1
+big 1
+brain 1
+call 1
+every 2
+everyone 1
+get 1
+go 1
+harvard 1
+holler 1
+madness 1
+make 1
+march 1
+meeting 1
+music 1
+out 2
+shout 2
+so 1
+who 1
