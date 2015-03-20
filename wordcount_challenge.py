@@ -51,14 +51,11 @@ s = sorted (worddic.keys())
 for key in s:
  	print key, worddic[key]
 
-# sort dictionary by key
-# for key in sorted(worddic.iterkeys()):	
-#  	print "%s: %s" % (key, worddic[key])
-
+# open up wc_result and overwrite the file by line
 with open('wc_output/wc_result.txt', 'w') as f:
-
+# iterate each line and add it to the file along with a new line
 	for key in sorted(worddic.keys()):
 	 	f.write(key + " " + str(worddic[key]) +'\n')
 
-# NLTK part
+# if time, run NLTK to check work
 

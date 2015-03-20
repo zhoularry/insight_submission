@@ -16,15 +16,15 @@ would return:
   * big		1
   * call		1
   * every	2
-..* everyone1
-..* get		1
-..* holler  1
-..* make	 	2
-..* meeting	1
-..* out		2
-..* shout   2
-..* so		1
-..* who		2
+  * everyone1
+  * get		1
+  * holler  1
+  * make	 	2
+  * meeting	1
+  * out		2
+  * shout   2
+  * so		1
+  * who		2
 
 The first part of the coding challenge is to implement your own version of Word Count that counts all
 the words from the text files contained in a directory named wc_input and outputs the counts 
