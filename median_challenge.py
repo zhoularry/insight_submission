@@ -11,37 +11,36 @@
 import csv
 import glob
 import json
-import numpy #for median function
+import pdb # debugger. remove
 
-for infile in sorted(glob.glob('wc_input/*.txt')):
-	print "current file processed is: " + infile
+file_list = sorted(glob.glob('wc_input/*.txt'))
+# pdb.set_trace()
 
-	file = open('wc_input/wc_input.txt', 'r')
+	# file = open('wc_input/wc_input.txt', 'r')
 
 # create a dictionary
-	worddic = {} 
-	line_count = []
-	wordcount = 0
+worddic = {} 
 
 # read the file into the dictionary
 # puts everything into lowercase
 
-	for word in file.read().split():
-			# word does not exist in the dictionary. starts with 1
-		clean_word = ''.join(e for e in word if e.isalnum())
-		wordcount += 1
+for input_file in file_list:
+	with open(input_file, 'r') as curfile:
 
-print wordcount
-	# don't care about words in a dictionary like the last program just the count of words
-	# 		if clean_word not in worddic:
-	# 			worddic[clean_word.lower()] = 1
-	# 		# word does exist in the dictionary. +1
-	# 		else:
-	# 			worddic[clean_word.lower()] += 1
-	# # print (worddic,word)
+		for word in curfile.read().split():
 
-	# for a,b in worddic.items():
-	# 	print a,b
+				# word does not exist in the dictionary. starts with 1
+				clean_word = ''.join(e for e in word if e.isalnum())
+				
+				if clean_word not in worddic:
+					worddic[clean_word.lower().strip()] = 1
+				# word does exist in the dictionary. +1
+				else:
+					worddic[clean_word.lower().strip()] += 1
+
+for a,b in worddic.items():
+	print a,b
+
 with open('wc_output/med_result.txt', 'w') as f:
 	data = [worddic]
 	json.dump(data, f)
