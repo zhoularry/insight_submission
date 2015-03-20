@@ -12,10 +12,10 @@ Make every Who shout shout.
 
 would return:
 
-..* a			1
-..* big		1
-..* call		1
-..* every	2
+  * a			1
+  * big		1
+  * call		1
+  * every	2
 ..* everyone1
 ..* get		1
 ..* holler  1
