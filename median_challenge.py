@@ -23,16 +23,17 @@
 # then just take the median() function of the array. spit that out before going onto the next line
 
 import glob
-import json
 
 file_list = sorted(glob.glob('wc_input/*.txt'))
 
 
 line_count = {} # dictionary of words in lines
-counter = 0.0 # line counter
+counter = 0 # line counter
 wordcount = 0.0 # words in a line
 strike = 0.0 # when to jump out of the dic to get the key 
 median_words = 0.0 # the median of the running today
+median_collection = [] # holds all the medians
+
 
 # read the file into the dictionary in alphabetic order
 # puts everything into lowercase
@@ -58,6 +59,7 @@ for input_file in file_list:
 			if len(line_count) == 1:
 				for key, value in line_count.items():
 					print float(key)
+					median_words = float(key)
 			
 			# all other cases
 			else:
@@ -68,20 +70,24 @@ for input_file in file_list:
 						# sums up the key's definition and sums to strike
 						for a,b in line_count.items():
 							
-							# add to the running total for the strike to jump out
+							# add to the running total within the dic for the strike to jump out
 							strike += b
 
 							# now we have the middle left key in a 
 							if strike > float(counter)/2:
+								# reset strike
 								strike = 0
 								while True:
+									# same logic but now we are looking to get just 1 step above the middle left
 									for c,d in line_count.items():
 										strike += d
+										# if the middle right is = to the key ofr hte middle left, it's ok
 										if strike >= float(counter)/2:
 											break
 									break
 								# get out completely
 								break	
+						# collect the middle right key
 						median_words = (float(a)+c)/2
 						print median_words
 						break	
@@ -94,13 +100,15 @@ for input_file in file_list:
 							
 							# add to the running total for the strike to jump out
 							strike += b 
+							# here counter/2 will be a number+0.5, but will drop the decimal without a float so we are going to look for the next key above that
 							if strike > counter/2:
 								break
 						median_words = float(a)
 						print median_words
 						break	
+			median_collection.append(median_words)
 
+# open and write the running medians line by line
 with open('wc_output/med_result.txt', 'w') as f:
-	data = [line_count]
-	json.dump(data, f)
-
+	for z in median_collection:
+	 	f.write("%s\n" % z)

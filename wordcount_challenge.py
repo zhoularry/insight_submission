@@ -14,10 +14,8 @@
 # write the sorted dic with all counts into the .txt final
 ###################
 
-import csv
 import glob
 import json
-import pdb # debugger. remove
 
 # sorts the files in alpha order and takes the 1 at a time
 file_list = sorted(glob.glob('wc_input/*.txt'))
